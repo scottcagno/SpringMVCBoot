@@ -29,13 +29,20 @@ repositories {
 }
 
 dependencies {
+	
+	// spring boot
 	compile "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
-	//compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+	compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
 	compile "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
 	compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
 	testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+	
+	// hibernate
+	compile "org.hibernate:hibernate-entitymanager:4.3.5.Final"
+	compile "org.hibernate:hibernate-validator:5.1.1.Final"
+	
+	// sql
+	compile "mysql:mysql-connector-java:5.1.30"
+	
+	
 }
-
-//task wrapper(type:Wrapper) {
-//	gradleVersion = "1.12"
-//}
