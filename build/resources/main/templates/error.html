@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8"/>
 	<title>Default Starting Template - Simple</title>
@@ -90,10 +90,11 @@
 
 	<div class="divPanel page-content">
 		<div class="row">
-			<div class="col-sm-offset-4 col-sm-4" id="divMain">
+			<div class="col-sm-offset-3 col-sm-6" id="divMain">
 				<h1>ERROR</h1>
-				<h1 th:text="${code}">500</h1>
-				<p th:text="${message}">OOPS</p>
+				<h1 th:text="${t}">500</h1>
+				<p th:text="${e}">OOPS</p>
+				<p th:text="${u}">OOPS</p>
 			</div>
 		</div>
 		<div id="footerInnerSeparator"></div>    

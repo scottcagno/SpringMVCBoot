@@ -21,6 +21,12 @@ public class Users {
 		this.enabled = enabled;
 	}
 
+	public Users(String username, String password) {
+		this.username = username;
+		this.password = password;
+		this.enabled = 1;
+	}
+	
 	public String toString() {
 		return "User [username=" + username + ", password=" + password
 				+ ", enabled=" + enabled + "]";
