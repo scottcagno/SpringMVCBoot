@@ -90,11 +90,11 @@
 
 	<div class="divPanel page-content">
 		<div class="row">
-			<div class="col-sm-offset-3 col-sm-6" id="divMain">
-				<h1>ERROR</h1>
-				<h1 th:text="${t}">500</h1>
-				<p th:text="${e}">OOPS</p>
-				<p th:text="${u}">OOPS</p>
+			<div class="col-sm-offset-2 col-sm-8" id="divMain">
+				<h1>Oops, we found an error!</h1>
+				<h2 th:text="${timestamp}"></h2>
+				<p th:text="${error}"></p>
+				<p th:text="${url}"></p>
 			</div>
 		</div>
 		<div id="footerInnerSeparator"></div>    
