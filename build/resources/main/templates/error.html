@@ -34,55 +34,8 @@
 </head>
 <body id="pageBody">
 
-<div id="decorative2">
-	<div class="container">
-
-		<div class="divPanel topArea notop nobottom">
-			<div class="row">
-				<div class="col-md-12">
-
-					<div id="divLogo" class="pull-left">
-						<a href="index.html" id="divSiteTitle">Default Starting Template</a><br />
-						<a href="index.html" id="divTagLine">Powered By Spring</a>
-					</div>
-
-					<div id="divMenuRight" class="pull-right">
-					<div class="navbar">
-						<button type="button" class="btn btn-navbar-highlight btn-lg btn-primary" data-toggle="collapse" data-target=".navbar-collapse">
-							NAVIGATION <span class="icon-chevron-down glyphicon glyphicon-white"></span>
-						</button>
-						<div class="navbar-collapse collapse">
-							<ul class="nav nav-pills ddmenu">
-								<li class="dropdown"><a href="index.html">Home</a></li>
-								<li class="dropdown">
-									<a href="page.html" class="dropdown-toggle">Page <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle">Dropdown Item &nbsp;&raquo;</a>
-											<ul class="dropdown-menu sub-menu">
-												<li><a href="#">Dropdown Item</a></li>
-												<li><a href="#">Dropdown Item</a></li>
-												<li><a href="#">Dropdown Item</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Dropdown Item</a></li>
-										<li><a href="#">Dropdown Item</a></li>
-										<li><a href="#">Dropdown Item</a></li>
-									</ul>
-								</li>
-								<li class="dropdown"><a href="grid.html">Grid</a></li>
-								<li class="dropdown active"><a href="simple.html">Simple</a></li>
-							</ul>
-						</div>
-					</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
+<!-- render navbar from index page -->
+<div th:replace="home::#decorative2"></div>
 
 <div id="contentOuterSeparator"></div>
 
@@ -90,11 +43,12 @@
 
 	<div class="divPanel page-content">
 		<div class="row">
-			<div class="col-sm-offset-3 col-sm-6" id="divMain">
-				<h1>ERROR</h1>
-				<h1 th:text="${t}">500</h1>
-				<p th:text="${e}">OOPS</p>
-				<p th:text="${u}">OOPS</p>
+			<div class="col-sm-offset-4 col-sm-4 text-center" id="divMain">
+				<h1 th:text="${timestamp}"></h1>
+				<h1 th:text="'ERROR ' + ${#httpServletRequest.getAttribute('javax.servlet.error.status_code')}"></h1>
+				<span th:with="msg=${#httpServletRequest.getAttribute('javax.servlet.error.message')}">
+					<h3 th:text="((${msg} != '') ? ${msg} : 'PAGE NOT FOUND')"></h3>
+				</span>
 			</div>
 		</div>
 		<div id="footerInnerSeparator"></div>    

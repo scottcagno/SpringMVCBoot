@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebMvcSecurity
@@ -28,19 +29,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/admin**").access("hasRole('ROLE_ADMIN')")
-				.antMatchers("/static/**", "/index", "/insert", "/pull").permitAll() .anyRequest().authenticated()
+				.antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
+				.antMatchers("/user/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
 				.and()
 			.formLogin()
-				.loginPage("/auth")
-				.permitAll()
+				.loginPage("/login")
 				.and()
 			.logout()
-				.logoutSuccessUrl("/index?logout")
-				.permitAll()
-				.and()
-			.exceptionHandling().accessDeniedPage("/403")
-				.and()
-			.csrf();
+				.logoutSuccessUrl("/index")
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"));
 	}
 }

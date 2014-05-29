@@ -1,7 +1,10 @@
 package com.cagnosolutions.cei.spring.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,6 +15,9 @@ public class Users {
 	private String username;
 	private String password;
 	private short enabled;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="groups_id")
+	private Groups groups;
 	
 	public Users() {}
 	
@@ -25,6 +31,7 @@ public class Users {
 		this.username = username;
 		this.password = password;
 		this.enabled = 1;
+		this.groups = new Groups(username, "ROLE_USER");
 	}
 	
 	public String toString() {
@@ -54,5 +61,17 @@ public class Users {
 
 	public void setEnabled(short enabled) {
 		this.enabled = enabled;
+	}
+
+	public Groups getGroups() {
+		return groups;
+	}
+
+	public void setGroups(Groups groups) {
+		this.groups = groups;
+	}
+
+	public short getEnabled() {
+		return enabled;
 	}	
 }

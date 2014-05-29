@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SessionController {
 	
-	@RequestMapping("/auth")
+	@RequestMapping("/login")
 	public String loginHandler() {
-		return "auth";
+		return "login";
 	}
 }

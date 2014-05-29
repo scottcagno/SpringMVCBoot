@@ -3,7 +3,6 @@ package com.cagnosolutions.cei.spring.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,27 +31,23 @@ public class SiteController {
 		return "test";
 	}
 	
-	@RequestMapping({"/", "/index"})
-	public String indexHandler() {
-		return "index";
+	@RequestMapping("/")
+	public String rootHandler() {
+		return "redirect:/home";
 	}
 	
 	@RequestMapping("/home")
+	public String indexHandler() {
+		return "home";
+	}
+	
+	@RequestMapping("/user/home")
 	public String welcomeHandler() {
 		return "home";
 	}
 	
-	@RequestMapping("/admin")
+	@RequestMapping("/admin/home")
 	public String adminHandler() {
 		return "admin/admin";
-	}
-	
-	@Bean(name="error")
-	@RequestMapping("/error")
-	public String error(HttpServletRequest r, Model model) {
-		model.addAttribute("t", "TIME");
-		model.addAttribute("e", "EXCEPTION");
-		model.addAttribute("u", r.getRequestURI());
-		return "error";
 	}
 }
