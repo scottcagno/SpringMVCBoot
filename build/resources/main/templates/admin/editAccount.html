@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+	<!-- render head from index page -->
+	<head th:replace="home::#head"></head>
+
+	<body id="pageBody">
+
+		<!-- render navbar from index page -->
+		<div th:replace="home::#decorative2"></div>
+
+		<div id="contentOuterSeparator"></div>
+
+		<div class="container">
+			<div class="divPanel page-content">
+				<div class="row">
+					<h1>Administrative Console</h1>
+					<div class="col-md-offset-2 col-md-4 sidebar" id="divMain">
+						<form class="sidebox" role="form" th:action="@{/admin/updateAccount}" method="post">
+							<div class="form-group">
+								<input id="id" type="text" class="form-control" name="id" th:value="${account.id}" readonly="true"/>
+							</div>
+							<div class="form-group">
+								<input id="username" type="text" class="form-control" name="username" placeholder="Username"
+									th:value="${account.user.username}" readonly="true" required="true"/>
+							</div>
+							<div class="form-group">
+								<input id="name" type="text" class="form-control" name="name" placeholder="Name"
+									th:value="${account.Name}" required="true"/>
+							</div>
+							<div class="form-group">
+								<input id="password" type="password" class="form-control" name="password" placeholder="password"
+									th:value="${account.user.password}" readonly="true"/>
+							</div>
+							<div class="form-group">
+								<input id="userGroup" type="text" class="form-control" name="userGroup" placeholder="userGroup"
+									th:value="${account.user.userGroup}" required="true"/>
+							</div>
+							<div class="radio">
+								<label>
+									 <input type="radio" name="enabled" id="enabled1" value="1" th:checked="${account.user.enabled == 1}"/>
+										Enable Account
+								</label>
+							</div>
+							<div class="radio">
+								<label>
+									<input type="radio" name="enabled" id="enabled2" value="0" th:checked="${account.user.enabled == 0}"/>
+										Disable Account
+								</label>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block">Save</button>
+						</form>
+					</div>
+					<div class="col-md-offset-2 col-md-4 sidebar">
+						<div class="sidebox">
+							<h3 class="sidebox-title">Navigation</h3>
+							<p>
+								<a href="/admin/home">View All</a>
+								<a href="/admin/addAccount">Add New Account</a>
+							</p>                       
+						</div>
+					</div>
+				</div>
+			<div id="footerInnerSeparator">
+			</div>
+			</div>
+		</div>
+		<div id="footerOuterSeparator"></div>
+		<div id="divFooter" class="footerArea">
+			<div class="container">
+				<div class="divPanel">
+					<div class="row">
+						<br/><br/>
+						<div class="row">
+							<div class="col-md-12">
+								<p class="copyright">
+									Copyright © 2014 Cagno Solutions, An entity of Cagno Enterprises, Inc. All Rights Reserved.
+								</p>
+								<p class="social_bookmarks">
+									<a href="#"><i class="social foundicon-facebook"></i> Facebook</a>
+									<a href=""><i class="social foundicon-twitter"></i> Twitter</a>
+									<a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
+									<a href="#"><i class="social foundicon-rss"></i> Rss</a>
+								</p>
+							</div>
+						</div>
+						<br/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- render scripts from index page -->
+		<div th:replace="home::#scripts"></div>
+
+	</body>
+</html>

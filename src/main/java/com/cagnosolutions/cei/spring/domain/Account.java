@@ -19,13 +19,14 @@ public class Account {
 	private Long id;
 	
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="users_id")
-	private Users user;
+	@JoinColumn(name="user_id")
+	//private Users user;
+	private User user;
 	private String name;
 	
 	public Account() {}
 	
-	public Account(Users user, String name) {
+	public Account(User user, String name) {
 		this.user = user;
 		this.name = name;
 	}
@@ -38,11 +39,11 @@ public class Account {
 		this.id = id;
 	}
 
-	public Users getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
