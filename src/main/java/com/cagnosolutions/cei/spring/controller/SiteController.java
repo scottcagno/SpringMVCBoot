@@ -28,13 +28,13 @@ public class SiteController {
 		return "redirect:/home";
 	}
 	
-	@RequestMapping("update")
-	public String updateHandler() {
-		User user = userService.findById("username");
-		user.setUsername("user");
-		userService.update(user);
-		return "redirect:/admin/home";
-	}
+//	@RequestMapping("update")
+//	public String updateHandler() {
+//		User user = userService.findById("username");
+//		user.setUsername("user");
+//		userService.update(user);
+//		return "redirect:/admin/home";
+//	}
 	
 	@RequestMapping("/pull")
 	public String pullHandler(Model model, HttpServletRequest r) {

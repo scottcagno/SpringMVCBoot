@@ -54,7 +54,7 @@ public class AdminController {
 			@RequestParam(value="userGroup", required=true) String userGroup) {
 		
 		if (password.equals(confirm)) {
-			Account account = new Account(new User(username, password, enabled, userGroup), name);
+			Account account = new Account(new User(username, password, enabled, userGroup, "email"), name);
 			accountService.insert(account);
 			return "redirect:/admin/home";
 		} else {

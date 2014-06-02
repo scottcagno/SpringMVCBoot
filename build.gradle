@@ -49,5 +49,8 @@ dependencies {
 	// sql
 	compile "mysql:mysql-connector-java:5.1.30"
 	
+	//json
+	compile "com.fasterxml.jackson.core:jackson-databind:2.3.3"
+	
 	
 }

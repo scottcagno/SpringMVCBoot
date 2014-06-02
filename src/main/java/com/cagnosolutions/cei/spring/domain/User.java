@@ -37,11 +37,12 @@ public class User {
 		this.userGroup = "ROLE_USER";
 	}
 	
-	public User(String username, String password, short enabled, String userGroup) {
+	public User(String username, String password, short enabled, String userGroup, String email) {
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
 		this.userGroup = userGroup;
+		this.email = email;
 	}
 	
 	public String toString() {

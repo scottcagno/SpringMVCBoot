@@ -18,8 +18,8 @@ public class ExceptionHandlerController {
 	public ModelAndView errorHandler(HttpServletRequest r, Exception e) {
 		ModelAndView view = new ModelAndView(DEFAULT_ERROR_VIEW);
 		view.addObject("t", new Date());
-		view.addObject("e", e.getStackTrace()[0]);
-		view.addObject("u", r.getAttribute("javax.servlet.error.message"));
+		view.addObject("e", r.getAttribute("javax.servlet.error.message"));
+		view.addObject("u", e.fillInStackTrace().toString());
 		return view;
 	}
 }

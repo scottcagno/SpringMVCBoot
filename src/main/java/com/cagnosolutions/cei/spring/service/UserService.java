@@ -16,8 +16,8 @@ public class UserService {
 	@Autowired
 	private UserRepository dao;
 	
-	public void insert(User user){
-		dao.save(user);
+	public User insert(User user){
+		return dao.saveAndFlush(user);
 	}
 
 	public void update(User user){
@@ -32,7 +32,11 @@ public class UserService {
 		return dao.findAll();
 	}
 
-	public User findById(String id){
+	public User findById(Long id){
 		return dao.findOne(id);
+	}
+	
+	public boolean exists(String username) {
+		return dao.exists(username) > 0;
 	}
 }
