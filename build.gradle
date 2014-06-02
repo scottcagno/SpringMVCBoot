@@ -39,7 +39,8 @@ dependencies {
 	compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
 	compile "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
 	compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
-	
+	compile "org.springframework.hateoas:spring-hateoas:0.12.0.RELEASE"
+
 	testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 	
 	// hibernate
@@ -49,5 +50,7 @@ dependencies {
 	// sql
 	compile "mysql:mysql-connector-java:5.1.30"
 	
+	// json
+	compile "com.fasterxml.jackson.core:jackson-databind:2.3.3"
 	
 }
