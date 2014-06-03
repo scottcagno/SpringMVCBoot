@@ -32,7 +32,7 @@ public class UserService {
 		return dao.findAll();
 	}
 
-	public User findById(String id){
+	public User findById(Long id){
 		return dao.findOne(id);
 	}
 }

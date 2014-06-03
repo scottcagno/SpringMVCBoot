@@ -16,6 +16,7 @@ public class User {
 	private Long id;
 	
 	private String username;
+	private String name;
 	private String email;
 	private String password;
 	private short enabled;
@@ -91,5 +92,17 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Long getId() {
+		return id;
 	}	
 }
